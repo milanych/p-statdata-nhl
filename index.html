@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Statistical data</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital@0;1&display=swap" rel="stylesheet">
+  <link href="./style.css" rel="stylesheet">
+  <script src="./index.js"></script>
+
+</head>
+<body>
+
+  <div class="data-container">
+    <div class="nhl-logo">
+      <img src="https://upload.wikimedia.org/wikipedia/en/3/3a/05_NHL_Shield.svg">
+    </div>
+    <div class="container-center">
+    <h1>Статистика игрока</h1>
+    <p>Сколько очков и голов сможет забить игрок, а также его текущие показатели</p>
+    <input placeholder="Сколько сейчас очков" type="number" class="data" id="currentPoints">
+    <input placeholder="Сколько сейчас голов" type="number" class="data" id="currentGoals">
+    <input placeholder="Игр сыграно игроком" type="number" class="data" id="gamesPlayed">
+    <input placeholder="Игр осталось в сезоне" type="number" class="data" id="gamesRemain">
+    <div class="buttons">
+      <button class="buttons-result" type="submit" onclick="result()">Результат</button>
+      <button class="buttons-reset" type="submit" onclick="reset()"><span>♻</span></button>
+    </div>
+    <span class="result">В конце сезона будет: <span id="resultData">Сколько?</span></span>
+  </div>
+  </div>
+
+
+</body>
+</html>
