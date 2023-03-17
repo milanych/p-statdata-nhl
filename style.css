@@ -15,12 +15,7 @@ body {
   background-color: #5F4B8BFF;
   color: #E69A8DFF;
   padding: 1rem 2rem;
-  display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: 200px 1fr;
-    grid-column-gap: 0px;
-    grid-row-gap: 0px;
-    width: auto;
+
 
 }
 @media screen and (max-width: 640px) {
@@ -33,12 +28,13 @@ body {
   background-color: #5F4B8BFF;
   color: #E69A8DFF;
   flex-direction: column;
-  align-self: center;
-  margin-top: -200px
 }
 .data-container .nhl-logo {
   display: flex;
   justify-content: center;
+}
+.data-container .nhl-logo img {
+  width: 200px
 }
 .data-container .data {
   margin-bottom: 1rem;
