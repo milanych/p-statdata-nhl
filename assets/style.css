@@ -11,6 +11,7 @@ body {
   background-size: cover;
   font-family: 'Open Sans', sans-serif;
 }
+input, select { font-size: 100%; }
 .data-container {
   background-color: #5F4B8BFF;
   color: #E69A8DFF;
