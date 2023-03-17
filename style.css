@@ -1,0 +1,141 @@
+body {
+  display: flex;
+  flex-direction: row;
+  width: min-content;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+  background: url(https://images.unsplash.com/photo-1566698217201-4bb26f7e02ba?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2035&q=80);
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  font-family: 'Open Sans', sans-serif;
+}
+.data-container {
+  background-color: #5F4B8BFF;
+  color: #E69A8DFF;
+  padding: 1rem 2rem;
+  display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 200px 1fr;
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+    width: auto;
+
+}
+@media screen and (max-width: 640px) {
+  body {
+    width: 100dvw;
+  }
+}
+.data-container .container-center {
+  display: flex;
+  background-color: #5F4B8BFF;
+  color: #E69A8DFF;
+  flex-direction: column;
+  align-self: center;
+  margin-top: -200px
+}
+.data-container .nhl-logo {
+  display: flex;
+  justify-content: center;
+}
+.data-container .data {
+  margin-bottom: 1rem;
+}
+.data-container h1 {
+  margin-top: 0;
+}
+.data-container p {
+  margin-top: 0;
+}
+.data-container #resultData {
+  display: block;
+  font-style: italic;
+}
+.data-container #resultData, .data-container .result {
+  font-size: 1.5rem;
+}
+.data-container input {
+  height: 2rem;
+}
+.data-container div.buttons {
+  display: flex;
+}
+.data-container div.buttons .buttons-result {
+  height: 3rem;
+  background-color: #1C2840;
+  color: white;
+  border: 0;
+  font-size: 1.25rem;
+  cursor: pointer;
+  width: 100%;
+}
+.data-container div.buttons .buttons-reset {
+  height: 3rem;
+  background-color: white;
+  color: green;
+  border: 0;
+  font-size: 1.25rem;
+  cursor: pointer;
+  margin-left: .25rem;
+}
+.data-container div.buttons .buttons-result:hover {
+  color: #1C2840;
+  background-color: white;
+  transition: .25s;
+}
+
+@keyframes rotating {
+  from {
+    transform: rotate(0deg);
+    transform-origin: center center;
+  }
+  to {
+    transform: rotate(360deg);
+    transform-origin: center center;
+  }
+}
+.data-container div.buttons .buttons-reset span:hover {
+  display: block;
+}
+.data-container .result, .data-container #resultData  {
+  margin-top: 1rem;
+}
+.gamesRemainBlock {
+  display: flex;
+  justify-content: space-between;
+}
+select#statData {
+    height: auto;
+    margin-bottom: 1rem;
+}
+.lang {
+  display: block;
+  position: absolute;
+  right: 0;
+  top: 0;
+  background: #E69A8DFF;
+}
+.lang_block {
+  display: flex;
+  justify-content: space-between;
+}
+.lang_link {
+  padding: 1rem;
+  text-decoration: none;
+  color: #5F4B8BFF;
+  font-weight: 700;
+
+}
+.lang_link:hover {
+  background-color: #5F4B8BFF;
+  transition: .25s;
+  color: #E69A8DFF;
+}
+.lang_link:first-child {
+  border-right: 1px solid grey;
+}
+.transition {
+  transition: 1s;
+}
