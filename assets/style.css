@@ -2,10 +2,10 @@ body {
   display: flex;
   flex-direction: row;
   width: min-content;
-  height: 100vh;
+  height: 100dvh;
   margin: 0;
   padding: 0;
-  background: url(https://images.unsplash.com/photo-1566698217201-4bb26f7e02ba?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2035&q=80);
+  background: url(../assets/bg-image.avif);
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -15,7 +15,12 @@ body {
   background-color: #5F4B8BFF;
   color: #E69A8DFF;
   padding: 1rem 2rem;
-
+  display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 3fr;
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+    width: auto;
 
 }
 @media screen and (max-width: 640px) {
@@ -34,7 +39,7 @@ body {
   justify-content: center;
 }
 .data-container .nhl-logo img {
-  width: 200px
+  width: 90px
 }
 .data-container .data {
   margin-bottom: 1rem;
