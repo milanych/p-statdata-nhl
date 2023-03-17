@@ -26,6 +26,61 @@ const text = {
   }
 }
 
+//Calculations
+const result = () => {
+  let points = +document.getElementById('currentPoints').value
+  let goals = +document.getElementById('currentGoals').value
+  let played = +document.getElementById('gamesPlayed').value
+  let remain = +document.getElementById('gamesRemain').value
+  let resultPoints = Math.floor(((points / played) * remain) + points);
+  let resultGoals = Math.floor(((goals / played) * remain) + goals);
+  if (ru.classList.contains('active')) {
+    let answer = `Очков: ${resultPoints}, Голов: ${resultGoals};`
+    document.querySelector("#resultData").innerHTML = (!resultPoints || !resultGoals) ? 'Введите данные' : answer;
+  } else {
+    let answer = `Points: ${resultPoints}, Goals: ${resultGoals};`
+    document.querySelector("#resultData").innerHTML = (!resultPoints || !resultGoals) ? 'Enter the data' : answer;
+  }
+}
+
+//Reset button
+const reset = () => {
+  document.getElementById('currentPoints').value = ''
+  document.getElementById('currentGoals').value = ''
+  document.getElementById('gamesPlayed').value = ''
+  document.getElementById('gamesRemain').value = ''
+}
+
+let urlData = 'assets/leaders.json'
+let numberOfGames = 82
+//Current games played
+async function getData() {
+  await fetch(urlData)
+    .then(response => response.json())
+    .then(data => data.conferences
+      .map(div => div.divisions
+        .map(division => division.teams
+          .map((team) => {
+            let name = `${team.market} ${team.name}`;
+            let played = team.games_played;
+            let option = `<option>${name}, ${played}</option>`
+            document.querySelector("#statData").innerHTML += option;
+          })
+        )
+      )
+    )
+};
+
+getData()
+
+const selectElement = document.querySelector(".statData");
+selectElement.addEventListener("change", (event) => {
+  document.getElementById('gamesRemain').value = (numberOfGames - event.target.value.slice(-2));
+});
+
+
+
+document.querySelector("body > div.data-container.fader").style.opacity = 1;
 
 const defaultValues = () => {
   document.querySelector("body > div.data-container > div.container-center > h1").innerHTML = text.en.h1;
@@ -72,57 +127,3 @@ const change = (current, off) => {
     document.querySelector("#resultData").innerHTML = text.ru.howMany;
   }
 }
-
-//Calculations
-const result = () => {
-  let points = +document.getElementById('currentPoints').value
-  let goals = +document.getElementById('currentGoals').value
-  let played = +document.getElementById('gamesPlayed').value
-  let remain = +document.getElementById('gamesRemain').value
-  let resultPoints = Math.floor(((points / played) * remain) + points);
-  let resultGoals = Math.floor(((goals / played) * remain) + goals);
-  if (ru.classList.contains('active')) {
-    let answer = `Очков: ${resultPoints}, Голов: ${resultGoals};`
-    document.querySelector("#resultData").innerHTML = (!resultPoints || !resultGoals) ? 'Введите данные' : answer;
-  } else {
-    let answer = `Points: ${resultPoints}, Goals: ${resultGoals};`
-    document.querySelector("#resultData").innerHTML = (!resultPoints || !resultGoals) ? 'Enter the data' : answer;
-  }
-}
-
-let urlData = 'leaders.json'
-let numberOfGames = 82
-//Current games played
-async function getData() {
-  await fetch(urlData)
-    .then(response => response.json())
-    .then(data => data.conferences
-      .map(div => div.divisions
-        .map(division => division.teams
-          .map((team) => {
-            let name = `${team.market} ${team.name}`;
-            let played = team.games_played;
-            let option = `<option>${name}, ${played}</option>`
-            document.querySelector("#statData").innerHTML += option;
-          })
-        )
-      )
-    )
-};
-
-getData()
-
-const selectElement = document.querySelector(".statData");
-selectElement.addEventListener("change", (event) => {
-  document.getElementById('gamesRemain').value = (numberOfGames - event.target.value.slice(-2));
-});
-
-//Reset button
-const reset = () => {
-  document.getElementById('currentPoints').value = ''
-  document.getElementById('currentGoals').value = ''
-  document.getElementById('gamesPlayed').value = ''
-  document.getElementById('gamesRemain').value = ''
-}
-
-document.querySelector("body > div.data-container.fader").style.opacity = 1;
