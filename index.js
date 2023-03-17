@@ -124,3 +124,5 @@ const reset = () => {
   document.getElementById('gamesPlayed').value = ''
   document.getElementById('gamesRemain').value = ''
 }
+
+document.querySelector("body > div.data-container.fader").style.opacity = 1;

@@ -139,3 +139,7 @@ select#statData {
 .transition {
   transition: 1s;
 }
+.fader {
+   opacity: 0;
+   transition: 1s;
+}
